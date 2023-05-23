@@ -4,6 +4,9 @@
 <div class="container text-white d-flex flex-column gap-4">
     <h1 >{{ucfirst($project->name)}}</h1>
     <hr>
+    <div class="__proj-category">
+        <h6>Project Type: {{ $project->type->name ?? 'not specified'}}</h6>
+    </div>
     <div class="__proj-description">
         <h4>Description</h4>
         <p>
