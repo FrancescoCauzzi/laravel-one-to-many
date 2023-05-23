@@ -20,6 +20,23 @@
     </div>
 
     <div class="mb-3">
+        <label for="name">Type</label>
+        <select class="form-select @error('type_id') is-invalid @enderror" name="type_id" id="">
+
+            <option >None</option>
+
+            @foreach ($types as $type )
+            <option value="{{$type->id}}" {{$type->id == old('type_id', $project->type_id) ? 'selected' : ''}}>{{$type->name}}</option>
+            @endforeach
+        </select>
+        @error('type_id')
+        <div class="invalid-feedback">
+          {{$message}}
+        </div>
+      @enderror
+      </div>
+
+    <div class="mb-3">
       <label for="description">Description</label>
       <textarea class="form-control @error('description') is-invalid @enderror" name="description" id="description">{{old('description') ?? $project->description}}</textarea>
       @error('description')

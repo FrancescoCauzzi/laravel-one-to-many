@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Project;
+use App\Models\Type;
+
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
 use Illuminate\Http\Request;
@@ -32,7 +34,8 @@ class ProjectController extends Controller
      */
     public function create(Project $project)
     {
-        return view('admin.projects.create', compact('project'));;
+        $types = Type::all();
+        return view('admin.projects.create', compact('project', 'types'));;
     }
 
     /**
@@ -79,7 +82,8 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        return view('admin.projects.edit', compact('project'));
+        $types = Type::all();
+        return view('admin.projects.edit', compact('project', 'types'));
     }
 
     /**
@@ -129,6 +133,7 @@ class ProjectController extends Controller
             'start_date' => 'required',
             'end_date' => 'required',
             'status' => 'required|max:20',
+            'type_id' => 'nullable|exists:types,id',
 
 
         ], [
@@ -140,6 +145,7 @@ class ProjectController extends Controller
             'start_date.required' => "The start date must be inserted",
             'end_date.required' => "The end date must be inserted",
             'status.required' => "The status of the project must be inserted",
+            'type_id.exists' => 'The project type must be selected',
 
 
         ])->validate();
