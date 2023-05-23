@@ -1,10 +1,10 @@
 @extends('layouts/admin')
 
 @section('content')
-<div class="container py-3 __create-ctn text-white">
+<div class=" __create-ctn text-white">
   <h1>Edit a project</h1>
 
-  <form action="{{route('admin.projects.update', $project->slug)}}" method="POST" class="py-5">
+  <form action="{{route('admin.projects.update', $project->slug)}}" method="POST" class="">
     @csrf
     @method('PUT')
 
@@ -61,7 +61,7 @@
 
 
 
-    <button type="submit" class="btn btn-success fw-bold text-uppercase">Edit this Project</button>
+    <button type="submit" class="btn btn-primary fw-bold text-uppercase">Edit this Project</button>
 
   </form>
 

@@ -1,7 +1,7 @@
 @extends('layouts/admin')
 
 @section('content')
-<div class="container py-3 __create-ctn text-white">
+<div class="container __create-ctn text-white">
   <h1>Add a project</h1>
 
   <form action="{{route('admin.projects.store')}}" method="POST" class="py-5">
@@ -60,7 +60,7 @@
 
 
 
-    <button type="submit" class="btn btn-success fw-bold text-uppercase">Add Project</button>
+    <button type="submit" class="btn btn-primary fw-bold text-uppercase">Add Project</button>
 
   </form>
 
