@@ -7,6 +7,9 @@ $myColor: #073a7e;
     li {
         list-style: none;
     }
+    a {
+        text-decoration: none !important;
+    }
     button a {
         text-decoration: none !important;
         color: $myColor;
@@ -43,6 +46,7 @@ header {
         text-stroke-color: $myColor;
     }
 }
+
 main {
     background-color: #1c2d3e;
     min-height: 91.2vh;
