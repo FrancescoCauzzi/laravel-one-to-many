@@ -10,6 +10,7 @@
             <th>Name</th>
             <th>Description</th>
             <th>Slug</th>
+            <th>Type</th>
             <th>Commands</th>
         </thead>
         <tbody>
@@ -18,6 +19,7 @@
                 <td>{{$project->name}}</td>
                 <td>{{$project->description}}</td>
                 <td>{{$project->slug}}</td>
+                <td>{{$project->type?->name}}</td>
                 <td class="text-center"><a href="{{route('admin.projects.show', ['project' => $project])}}"><i class="fa-solid fa-magnifying-glass"></i></a></td>
 
             </tr>

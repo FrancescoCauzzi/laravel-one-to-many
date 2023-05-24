@@ -12,7 +12,34 @@
     </div>
     <div class="__nr-of-project">
         <h5>Projects with this type:</h5>
-        
+        @if(count($type->projects) > 0)
+        <table class="table text-white">
+            <thead>
+                <th>Project name</th>
+                <th>Slug</th>
+                <th>Action</th>
+            </thead>
+            <tbody>
+                @foreach($type->projects as $project)
+                <tr>
+                    <td>
+                        {{$project->name}}
+                    </td>
+                    <td>
+                        {{$project->slug}}
+                    </td>
+                    <td>
+                        <a class="fw-bold" href="{{route('admin.types.edit', ['type' => $type->slug])}}"><i class="fa-solid fa-file-pen"></i></a>
+                    </td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
+        @else
+        <em>No Project to show here</em>
+
+        @endif
+
 
     </div>
     <div class="__btns-ctn d-flex gap-5">

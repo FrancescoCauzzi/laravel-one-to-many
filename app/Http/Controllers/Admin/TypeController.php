@@ -45,7 +45,6 @@ class TypeController extends Controller
      */
     public function store(Request $request)
     {
-        //
     }
 
     /**
@@ -56,6 +55,7 @@ class TypeController extends Controller
      */
     public function show(Type $type)
     {
+
         return view('admin/types/show', compact('type'));
     }
 
