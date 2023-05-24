@@ -60,15 +60,15 @@ function routeNameContains($string) {
                         </div>
                     </div>
 
-                    {{-- <div class="card {{ routeNameContains('categories.') ? 'border-primary' : '' }}">
-                        <div class="card-header {{ routeNameContains('categories.') ? 'text-primary' : '' }}">
-                            Categorie
+                    <div class="card {{ routeNameContains('types.') ? 'border-primary' : '' }}">
+                        <div class="card-header {{ routeNameContains('types.') ? 'text-primary' : '' }} fs-5 fw-bold">
+                            Types
                         </div>
                         <div class="list-group list-group-flush">
-                            <a href="{{route('admin.categories.index')}}" class="list-group-item list-group-item-action {{routeNameContains('categories.index') ? 'active' : ''}}">Tutte le categorie</a>
-                            <a href="{{route('admin.categories.create')}}" class="list-group-item list-group-item-action {{routeNameContains('categories.create') ? 'active' : ''}}">Aggiungi una categoria</a>
+                            <a href="{{route('admin.types.index')}}" class="list-group-item list-group-item-action {{routeNameContains('types.index') ? '__active' : ''}}">All the types</a>
+                            <a href="{{route('admin.types.create')}}" class="list-group-item list-group-item-action {{routeNameContains('types.create') ? '__active' : ''}}">Add a type</a>
                         </div>
-                    </div> --}}
+                    </div>
                 </aside>
                 <div class="__content">
                     @yield('content')
