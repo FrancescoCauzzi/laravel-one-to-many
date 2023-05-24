@@ -21,9 +21,7 @@
     <div class="mb-3">
         <label for="name">Type</label>
         <select class="form-select @error('type_id') is-invalid @enderror" name="type_id" id="">
-
             <option >None</option>
-
             @foreach ($types as $type )
             <option value="{{$type->id}}" {{$type->id == old('type_id') ? 'selected' : ''}}>{{$type->name}}</option>
             @endforeach
@@ -70,7 +68,7 @@
       <select class="form-select @error('status') is-invalid @enderror" name="status" id="">
 
         @foreach ($statuses as $index => $status)
-            <option value="{{ $status }}" {{ $status == old('status') ? 'selected' : '' }}>{{ $status }}</option>
+            <option value="{{ $status }}" {{ $status == old('status') ? 'selected' : '' }}>{{ ucfirst($status) }}</option>
         @endforeach
 
     </select>

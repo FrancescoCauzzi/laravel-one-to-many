@@ -17,7 +17,7 @@
             <thead>
                 <th>Project name</th>
                 <th>Slug</th>
-                <th>Action</th>
+                <th>Actions</th>
             </thead>
             <tbody>
                 @foreach($type->projects as $project)
@@ -29,7 +29,7 @@
                         {{$project->slug}}
                     </td>
                     <td>
-                        <a class="fw-bold" href="{{route('admin.types.edit', ['type' => $type->slug])}}"><i class="fa-solid fa-file-pen"></i></a>
+                        <a class="fw-bold" href="{{route('admin.projects.edit', ['project' => $project->slug])}}"><i class="fa-solid fa-file-pen"></i></a>
                     </td>
                 </tr>
                 @endforeach
@@ -61,7 +61,7 @@
                 <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                    <h1 class="modal-title fs-5 text-black" id="staticBackdropLabel">Are you sure that you want to delete this type?</h1>
+                    <h1 class="modal-title fs-5 text-black" id="staticBackdropLabel">Are you sure that you want to delete the type: {{$type->name}}?</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     {{-- <div class="modal-body">

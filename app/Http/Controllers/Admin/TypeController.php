@@ -45,6 +45,18 @@ class TypeController extends Controller
      */
     public function store(Request $request)
     {
+        $formData = $request->all();
+
+        $this->validation($formData);
+
+        $formData['slug'] = Str::slug($formData['name'], '-');
+        $newType = new Type();
+
+        $newType->fill($formData);
+
+        $newType->save();
+
+        return redirect()->route('admin.types.show', $newType)->with('success', 'Type created successfully');
     }
 
     /**
@@ -65,9 +77,9 @@ class TypeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Type $type)
     {
-        //
+        return view('admin.types.edit', compact('type'));
     }
 
     /**
@@ -77,9 +89,18 @@ class TypeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Type $type)
     {
-        //
+        $formData = $request->all();
+
+        $this->validation($formData);
+
+        $formData['slug'] = Str::slug($formData['name'], '-');
+
+
+        $type->update($formData);
+
+        return redirect()->route('admin.types.show', $type)->with('success', 'Type updated successfully');
     }
 
     /**
@@ -88,8 +109,28 @@ class TypeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Type $type)
     {
-        //
+        $type->delete();
+        return redirect()->route('admin.types.index')->with('success', 'Type deleted successfully');
+    }
+    // custom methods
+    private function validation($formData)
+    {
+        $validator = Validator::make($formData, [
+
+            'name' => 'max:100|required|unique:App\Models\Type,name',
+            'description' => 'required',
+
+        ], [
+            // dobbiamo inserire qui un insieme di messaggi da comunicare all'utente per ogni errore che vogliamo modificare
+            'name.max' => 'The name must not exceed 100 characters',
+            'name.required' => 'The name is required',
+            'name.unique' => 'This type is already in use',
+            'description.required' => 'The description is required',
+        ])->validate();
+
+        // we need to return a value because we are inside a function
+        return $validator;
     }
 }

@@ -11,7 +11,8 @@
             <th>Description</th>
             <th>Slug</th>
             <th>Number of projects</th>
-            <th>Commands</th>
+            <th>Actions</th>
+            <th></th>
         </thead>
         <tbody>
             @foreach ($types as $type)
@@ -20,7 +21,9 @@
                 <td>{{$type->description}}</td>
                 <td>{{$type->slug}}</td>
                 <td class="text-center">{{count($type->projects)}}</td>
-                <td class="text-center"><a href="{{route('admin.types.show', ['type' => $type])}}"><i class="fa-solid fa-magnifying-glass"></i></a></td>
+                <td class=""><a href="{{route('admin.types.show', ['type' => $type])}}"><i class="fa-solid fa-magnifying-glass"></i></a>
+                </td>
+                <td><a href="{{route('admin.types.edit', ['type' => $type])}}"><i class="fa-solid fa-file-pen"></a></td>
 
             </tr>
 
