@@ -70,7 +70,7 @@
       <select class="form-select @error('status') is-invalid @enderror" name="status" id="">
 
         @foreach ($statuses as $index => $status)
-            <option value="{{ $index }}" {{ $index == old('status') ? 'selected' : '' }}>{{ $status }}</option>
+            <option value="{{ $status }}" {{ $status == old('status') ? 'selected' : '' }}>{{ $status }}</option>
         @endforeach
 
     </select>
