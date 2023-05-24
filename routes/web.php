@@ -4,6 +4,9 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TypeController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +29,8 @@ Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(
     Route::get('/', [DashboardController::class, 'home'])->name('dashboard.home');
     //route to projects
     Route::resource('projects', ProjectController::class)->parameters(['projects' => 'project:slug']);
+    // route to types
+    Route::resource('types', TypeController::class)->parameters(['types' => 'type:slug']);
     // edit, update, delete
     Route::get('profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('profile', [ProfileController::class, 'update'])->name('profile.update');
