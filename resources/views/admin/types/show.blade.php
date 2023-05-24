@@ -4,17 +4,17 @@
 <div class="container text-white d-flex flex-column gap-4">
     <h1 >{{ucfirst($type->name)}}</h1>
     <hr>
-
-    <div class="__proj-description">
+    <div class="__type-description">
         <h4>Description</h4>
         <p>
             {{$type->description}}
         </p>
     </div>
+    <div class="__nr-of-project">
+        <h5>Projects with this type:</h5>
+        
 
-
-
-
+    </div>
     <div class="__btns-ctn d-flex gap-5">
 
         <div class="__edit-btn">

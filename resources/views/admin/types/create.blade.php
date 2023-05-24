@@ -29,7 +29,7 @@
     </div>
 
 
-    <button type="submit" class="btn btn-primary fw-bold text-uppercase">Add Type</button>
+    <button type="submit" class="btn btn-primary fw-bold">Add Type</button>
 
   </form>
 

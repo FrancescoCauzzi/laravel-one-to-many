@@ -83,7 +83,7 @@
 
 
 
-    <button type="submit" class="btn btn-primary fw-bold text-uppercase">Add Project</button>
+    <button type="submit" class="btn btn-primary fw-bold">Add Project</button>
 
   </form>
 
