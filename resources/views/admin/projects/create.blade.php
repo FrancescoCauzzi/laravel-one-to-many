@@ -67,7 +67,13 @@
 
     <div class="mb-3">
       <label for="status">Status</label>
-      <input class="form-control @error('status') is-invalid @enderror" type="text" name="status" id="status" value="{{old('status')}}">
+      <select class="form-select @error('status') is-invalid @enderror" name="status" id="">
+
+        @foreach ($statuses as $index => $status)
+            <option value="{{ $index }}" {{ $index == old('status') ? 'selected' : '' }}>{{ $status }}</option>
+        @endforeach
+
+    </select>
       @error('status')
         <div class="invalid-feedback">
           {{$message}}

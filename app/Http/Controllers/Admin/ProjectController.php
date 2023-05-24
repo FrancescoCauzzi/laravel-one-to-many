@@ -35,7 +35,8 @@ class ProjectController extends Controller
     public function create(Project $project)
     {
         $types = Type::all();
-        return view('admin.projects.create', compact('project', 'types'));;
+        $statuses = ['pending', 'in progress', 'completed'];
+        return view('admin.projects.create', compact('project', 'types', 'statuses'));;
     }
 
     /**
