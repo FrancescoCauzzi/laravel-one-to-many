@@ -67,14 +67,20 @@
     </div>
 
     <div class="mb-3">
-      <label for="status">Status</label>
-      <input class="form-control @error('status') is-invalid @enderror" type="text" name="status" id="status" value="{{old('status') ?? $project->status}}">
-      @error('status')
-        <div class="invalid-feedback">
-          {{$message}}
-        </div>
-      @enderror
-    </div>
+        <label for="status">Status</label>
+        <select class="form-select @error('status') is-invalid @enderror" name="status" id="">
+
+          @foreach ($statuses as $index => $status)
+              <option value="{{ $status }}" {{ $status == old('status') ? 'selected' : '' }}>{{ $status }}</option>
+          @endforeach
+
+      </select>
+        @error('status')
+          <div class="invalid-feedback">
+            {{$message}}
+          </div>
+        @enderror
+      </div>
 
 
 
