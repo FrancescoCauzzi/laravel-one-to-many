@@ -17,7 +17,8 @@ class TypeSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
-        $types = ['Full stack', 'Front end', 'Back end', 'Web app', 'Personal project', 'Framework', 'HTML', 'CSS', 'JavaScript', 'VueJs', 'Laravel', 'Figma', 'Blog'];
+        $types = ['Full stack', 'Front end', 'Back end', 'Web app', 'Personal project', 'Framework', 'Blog', 'API', 'Game', 'Desktop app', 'Mobile app', 'Database management', 'E-commerce', 'Machine learning', 'Data analysis', 'Data visualization', 'Other'];
+
         foreach ($types as $type) {
             $newType = new Type();
             $newType->name = $type;
